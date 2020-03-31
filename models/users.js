@@ -3,11 +3,13 @@ const { Schema } = mongoose;
 const TasksSchema = require("./tasks");
 
 const UsersSchema = new Schema({
-  userID: String,
-  name: String,
-  posts: [TasksSchema]
+  firstname: String,
+  lastname: String,
+  email: String,
+  // sub document collection
+  tasks: [TasksSchema]
 });
 
-mongoose.model("users", UsersSchema);
-
+// registering userSchema with Mongoose
 // We need to communicate to user Schema that it should have embedded list of tasks
+mongoose.model("users", UsersSchema);
